@@ -2,13 +2,13 @@ import requests
 import time
 
 # Replace <YOUR-API-KEY> with your own Etherscan API key
-api_key = "1XY9N68UFK14YAEY6N31N3RT5IVM5DMZIQ"
+api_key = "YOUR-API-KEY"
 
 # Replace <YOUR-ETHEREUM-ADDRESS> with the Ethereum address you want to check
 address = "0x993D89343035F703172451Bf426A3A52eB1F7cdF"
 
 # Replace <YOUR-SLACK-WEBHOOK-URL> with the URL of your Slack webhook
-webhook_url = "https://hooks.slack.com/services/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"
+webhook_url = "YOUR-SLACK-WEBHOOK-URL"
 
 # Send a request to the Etherscan API to get the last transaction for the specified address
 response = requests.get(f"https://api.etherscan.io/api?module=account&action=txlist&address={address}&sort=desc&apikey={api_key}")
