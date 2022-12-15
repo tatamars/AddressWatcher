@@ -3,31 +3,26 @@ import time
 
 # Replace <YOUR-API-KEY> with your own Etherscan API key
 api_key = "YOUR-API-KEY"
-
 # Replace <YOUR-ETHEREUM-ADDRESS> with the Ethereum address you want to check
 address = "0x993D89343035F703172451Bf426A3A52eB1F7cdF"
-
 # Replace <YOUR-SLACK-WEBHOOK-URL> with the URL of your Slack webhook
 webhook_url = "YOUR-SLACK-WEBHOOK-URL"
 
-# Send a request to the Etherscan API to get the last transaction for the specified address
-response = requests.get(f"https://api.etherscan.io/api?module=account&action=txlist&address={address}&sort=desc&apikey={api_key}")
 
-# Get the response data as a JSON object
+
+### Etherscan API call to get last transactions.
+response = requests.get(f"https://api.etherscan.io/api?module=account&action=txlist&address={address}&sort=desc&apikey={api_key}")
 data = response.json()
 
-# Get the first (i.e. most recent) transaction from the response data
+##### First tx (most recent) & Timestamp get
 last_transaction = data['result'][0]
-
-# Get the timestamp of the last transaction, in seconds since the Unix epoch
 last_transaction_timestamp = int(last_transaction['timeStamp'])
 
-# Calculate the time difference between the current time and the timestamp of the last transaction
+##### Time difference.
 time_difference = time.time() - last_transaction_timestamp
 
-# Check if the time difference is greater than 10 minutes (600 seconds)
+# Final checking.
 if time_difference > 600:
-  # If it is, send an alert message to Slack
   requests.post(webhook_url, json={
     "text": f"The last transaction for address {address} was more than 10 minutes ago!",
   })
