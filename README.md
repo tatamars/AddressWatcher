@@ -7,3 +7,10 @@ Simple bot to execute a warning if any address on Ethereum network stops broadca
 -Slack webhook URL, can be adapted to use Slack API key.
 
 -Address to watch.
+
+# Roadmap:
+-Error reporting checking (500)
+
+-API call optimizing
+
+-XRP, EOS, AVAX
