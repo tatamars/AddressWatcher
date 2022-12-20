@@ -13,4 +13,4 @@ Simple bot to execute a warning if any address on Ethereum network stops broadca
 
 -API call optimizing
 
--XRP, EOS, AVAX
+-XRP, EOS, AVAX, XLM, XTZ, XRD, ALG
