@@ -8,7 +8,7 @@ Simple bot to execute a warning if any address on Ethereum network stops broadca
 
 -Address to watch.
 
-# Roadmap:
+# Work in Progress:
 -Error reporting checking (500)
 
 -API call optimizing
